@@ -1,0 +1,14 @@
+#Thu Sep 14 22:34:05 CST 2017
+myeclipseTomcatServer.webdemo01.shouldBackup=false
+myeclipseTomcatServer.webdemo01.type=WebDeployment
+myeclipseTomcatServer.webdemo01.IEARProjectName=
+myeclipseTomcatServer.webdemo01.deploymentPath=D\:\\git repository\\web back\\web-back\\.metadata\\.me_tcat\\webapps\\webdemo01
+myeclipseTomcatServer.webdemo01.altContextRoot=
+myeclipseTomcatServer.webdemo01.isExploded=true
+myeclipseTomcatServer.webdemo01.deployIsOverProject=false
+myeclipseTomcatServer.webdemo01.isUptoDate=true
+eclipse.preferences.version=1
+myeclipseTomcatServer.webdemo01.contextRoot=/webdemo01
+myeclipseTomcatServer.webdemo01.isDeployed=true
+myeclipseTomcatServer.webdemo01.shouldOverwrite=false
+myeclipseTomcatServer.webdemo01.noFileCopy=false
