@@ -87,3 +87,12 @@ org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
 
 !ENTRY org.eclipse.m2e.logback.appender 4 0 2017-09-14 22:25:59.819
 !MESSAGE Unable to update index for central|http://repo1.maven.org/maven2
+!SESSION 2017-09-17 11:18:02.514 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2017-09-17 11:20:10.480
+!MESSAGE Unable to update index for central|http://repo1.maven.org/maven2

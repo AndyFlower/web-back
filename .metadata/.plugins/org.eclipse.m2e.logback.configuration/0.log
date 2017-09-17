@@ -420,3 +420,46 @@ java.io.IOException: Server returned status code 403: Forbidden
 2017-09-14 23:01:55,273 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\git repository\web back\web-back\webdemo01\src\main\resources
 2017-09-14 23:01:55,276 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-09-14 23:01:55,276 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\git repository\web back\web-back\webdemo01\src\test\resources
+2017-09-17 11:19:06,911 [Worker-7] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo1.maven.org/maven2
+2017-09-17 11:19:10,505 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-17 11:19:10,505 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\git repository\web back\web-back\webdemo01\src\main\resources
+2017-09-17 11:19:10,521 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-17 11:19:10,521 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\git repository\web back\web-back\webdemo01\src\test\resources
+2017-09-17 11:19:12,146 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-17 11:19:12,146 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\git repository\web back\web-back\webdemo01\src\main\resources
+2017-09-17 11:19:12,146 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-17 11:19:12,146 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\git repository\web back\web-back\webdemo01\src\test\resources
+2017-09-17 11:20:10,480 [Worker-7] ERROR o.e.m.c.i.i.nexus.NexusIndexManager - Unable to update index for central|http://repo1.maven.org/maven2
+java.io.IOException: No response received after 60000
+	at org.eclipse.m2e.core.internal.index.nexus.AsyncFetcher$PipedErrorInputStream.checkError(AsyncFetcher.java:253) ~[org.eclipse.m2e.core_1.0.0.me201110301321.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.AsyncFetcher$PipedErrorInputStream.read(AsyncFetcher.java:261) ~[org.eclipse.m2e.core_1.0.0.me201110301321.jar:na]
+	at java.io.PipedInputStream.read(PipedInputStream.java:361) ~[na:1.6.0_13]
+	at java.io.InputStream.read(InputStream.java:85) ~[na:1.6.0_13]
+	at java.util.Properties$LineReader.readLine(Properties.java:418) ~[na:1.6.0_13]
+	at java.util.Properties.load0(Properties.java:337) ~[na:1.6.0_13]
+	at java.util.Properties.load(Properties.java:325) ~[na:1.6.0_13]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.downloadIndexProperties(DefaultIndexUpdater.java:457) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.access$100(DefaultIndexUpdater.java:75) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater$IndexAdaptor.setProperties(DefaultIndexUpdater.java:607) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.fetchAndUpdateIndex(DefaultIndexUpdater.java:788) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.fetchAndUpdateIndex(DefaultIndexUpdater.java:135) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.updateRemoteIndex(NexusIndexManager.java:1126) [org.eclipse.m2e.core_1.0.0.me201110301321.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.updateIndex(NexusIndexManager.java:1083) [org.eclipse.m2e.core_1.0.0.me201110301321.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager$1.run(NexusIndexManager.java:660) [org.eclipse.m2e.core_1.0.0.me201110301321.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.IndexUpdaterJob.run(IndexUpdaterJob.java:71) [org.eclipse.m2e.core_1.0.0.me201110301321.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54) [org.eclipse.core.jobs_3.5.100.v20110404.jar:na]
+java.util.concurrent.TimeoutException: No response received after 60000
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider$ReaperFuture.run(NettyAsyncHttpProvider.java:1773) ~[na:na]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:441) ~[na:1.6.0_13]
+	at java.util.concurrent.FutureTask$Sync.innerRunAndReset(FutureTask.java:317) ~[na:1.6.0_13]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:150) ~[na:1.6.0_13]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$101(ScheduledThreadPoolExecutor.java:98) ~[na:1.6.0_13]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.runPeriodic(ScheduledThreadPoolExecutor.java:181) ~[na:1.6.0_13]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:205) ~[na:1.6.0_13]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886) ~[na:1.6.0_13]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908) ~[na:1.6.0_13]
+	at java.lang.Thread.run(Thread.java:619) ~[na:1.6.0_13]
+2017-09-17 11:26:00,523 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-17 11:26:00,523 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\git repository\web back\web-back\webdemo01\src\main\resources
+2017-09-17 11:26:00,524 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-17 11:26:00,524 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\git repository\web back\web-back\webdemo01\src\test\resources
