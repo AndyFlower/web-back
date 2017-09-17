@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;webdemo01/src/main/webapp/views/forward-result.jsp.jsp&apos; to &apos;forward-result.jsp&apos;" description="Rename resource &apos;forward-result.jsp.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/views/forward-result.jsp.jsp" name="forward-result.jsp" stamp="1505629788889" updateReferences="true"/>
+</session>

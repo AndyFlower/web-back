@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,6 +23,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <table bgcolor="#9999dd" border="1px" width="300px">
+    <!-- java脚本，这些脚本会对HTML的标签产生作用 -->
+    <%
+    for(int i=0;i<10;i++){
+    %>
+    <!-- 上面的循环在控制<tr>标签循环 -->
+    <tr>
+    <td>循环值：</td>
+    <td><%=i %></td>
+    </tr>
+    <%
+    }
+     %>
+    </table>
   </body>
 </html>

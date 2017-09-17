@@ -96,3 +96,166 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.m2e.logback.appender 4 0 2017-09-17 11:20:10.480
 !MESSAGE Unable to update index for central|http://repo1.maven.org/maven2
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.640
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/api/xdevapi/Statement.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.669
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/core/conf/url/ConnectionUrl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.672
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/core/conf/url/HostInfo.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.673
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/core/conf/url/LoadbalanceConnectionUrl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.674
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/core/conf/url/ReplicationConnectionUrl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.675
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/core/conf/url/XDevAPIConnectionUrl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.726
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/core/util/StringUtils.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.760
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/jdbc/ConnectionImpl$ExceptionInterceptorChain.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.762
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/jdbc/ConnectionImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.786
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/jdbc/MysqlDataSource.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.817
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/jdbc/ha/LoadBalancedConnectionProxy.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.824
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/jdbc/ha/ReplicationConnectionProxy.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.838
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/jdbc/util/ResultSetUtil.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.839
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/mysqla/MysqlaSession.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.854
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/core/MysqlxSession.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.855
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/AsyncMessageReader$SyncReader.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.856
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/AsyncMessageReader.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.856
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/AsyncMessageWriter.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.857
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/DevapiRowFactory.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.858
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/MessageBuilder.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.858
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/ResultCreatingResultListener.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.860
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/SerializingBufferWriter.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.861
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/SqlResultMessageListener.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.864
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/TlsEncryptingByteChannel.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.864
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/XProtocol.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.865
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/x/io/XProtocolDecoder.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.994
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/AbstractColumnDef.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.994
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/AbstractDataResult.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.995
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/AbstractSession.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.996
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/AddStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.997
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/CreateCollectionIndexStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.998
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/CreateTableStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:14.999
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/DeleteStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.000
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/DocResultImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.001
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/DropCollectionIndexStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.002
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/ExprParser.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.003
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/ExprUnparser.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.004
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/ExprUtil.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.005
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/FilterParams.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.006
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/InsertParams.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.007
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/InsertStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.009
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/ModifyStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.009
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/RemoveStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.010
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/RowResultImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.011
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/SchemaImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.012
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/SqlStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.013
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/UpdateParams.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.014
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/UpdateResult.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.jdt.core 2 0 2017-09-17 13:22:15.015
+!MESSAGE The Java indexing could not index D:/develop tools/maven repo/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar|com/mysql/cj/xdevapi/UpdateStatementImpl.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2017-09-17 13:34:32.631
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2017-09-17 13:34:32.874
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-parseable POM D:\git repository\web back\web-back\webdemo01\pom.xml: end tag name </dependencies> must match start tag name <dependency> from line 32 (position: TEXT seen ...</dependency>\r\n\r\n  </dependencies>... @40:18)  @ line 40, column 18
+ for project  at D:\git repository\web back\web-back\webdemo01\pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2017-09-17 13:34:32.883
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-parseable POM D:\git repository\web back\web-back\webdemo01\pom.xml: end tag name </dependencies> must match start tag name <dependency> from line 32 (position: TEXT seen ...</dependency>\r\n\r\n  </dependencies>... @40:18)  @ line 40, column 18
+ for project  at D:\git repository\web back\web-back\webdemo01\pom.xml
+
+!ENTRY org.eclipse.jdt.core 4 0 2017-09-17 13:36:56.982
+!MESSAGE Invalid ZIP archive: D:\develop tools\maven repo\mysql\mysql-connector-java\5.1.41\mysql-connector-java-5.1.41.jar

@@ -29,3 +29,9 @@ Sun Sep 17 11:26:00 CST 2017   [info] Velocimacro : initialization complete.
 Sun Sep 17 11:26:00 CST 2017   [info] Velocity successfully started.
 Sun Sep 17 11:26:00 CST 2017   [info] ResourceManager : found templates/jsp/Jsp.vtl with loader com.genuitec.eclipse.templates.internal.PluginResourceLoader
 Sun Sep 17 11:26:00 CST 2017   [info] ResourceManager : found templates/jsp/JSPMetaTags.vtl with loader com.genuitec.eclipse.templates.internal.PluginResourceLoader
+Sun Sep 17 13:20:31 CST 2017   [info] ResourceManager : found templates/jsp/Jsp.vtl with loader com.genuitec.eclipse.templates.internal.PluginResourceLoader
+Sun Sep 17 13:20:31 CST 2017   [info] ResourceManager : found templates/jsp/JSPMetaTags.vtl with loader com.genuitec.eclipse.templates.internal.PluginResourceLoader
+Sun Sep 17 14:26:56 CST 2017   [info] ResourceManager : found templates/jsp/Jsp.vtl with loader com.genuitec.eclipse.templates.internal.PluginResourceLoader
+Sun Sep 17 14:26:56 CST 2017   [info] ResourceManager : found templates/jsp/JSPMetaTags.vtl with loader com.genuitec.eclipse.templates.internal.PluginResourceLoader
+Sun Sep 17 14:27:58 CST 2017   [info] ResourceManager : found templates/jsp/Jsp.vtl with loader com.genuitec.eclipse.templates.internal.PluginResourceLoader
+Sun Sep 17 14:27:58 CST 2017   [info] ResourceManager : found templates/jsp/JSPMetaTags.vtl with loader com.genuitec.eclipse.templates.internal.PluginResourceLoader
