@@ -59,3 +59,5 @@ webdemo01/target/m2e-jee/web-resources/META-INF/maven/webdemo01/webdemo01/pom.pr
 .metadata/.plugins/org.eclipse.core.runtime/.settings/com.genuitec.myeclipse.compatibility.prefs
 .metadata/.plugins/org.eclipse.jdt.core/invalidArchivesCache
 .metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache
+Utils/.classpath
+Utils/target/classes/META-INF/maven/com.slp/Utils/pom.properties

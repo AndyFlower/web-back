@@ -23,5 +23,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/slpworkspace/vcweixinmyeclipse/culsite/WebRoot/WEB-INF/lib/json-lib-2.1-jdk15.jar"/>
+	<classpathentry kind="lib" path="D:/develop tools/apache-maven-3.5.0/pinyin4j-2.5.0/lib/pinyin4j-2.5.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
