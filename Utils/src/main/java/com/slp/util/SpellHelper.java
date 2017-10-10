@@ -8,6 +8,15 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;  
   
   
+/**
+ * 
+ * @ClassName:  SpellHelper   
+ * @Description:中文转换为英文   
+ * @author: liping.sang
+ * @date:   2017年10月10日 下午5:34:46   
+ *     
+ * @Copyright: 2017 liping.sang Inc. All rights reserved.
+ */
 public class SpellHelper {  
      //将中文转换为英文  
      @SuppressWarnings("deprecation")
