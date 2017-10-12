@@ -2,6 +2,7 @@ package com.slp;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -16,11 +17,17 @@ import org.apache.commons.dbcp2.BasicDataSourceFactory;
  * @date:   2017年10月11日 下午3:13:33   
  *     
  * @Copyright: 2017 liping.sang Inc. All rights reserved.
+ * 使用到的jar包：commons-dbutils
+ *               commons-pool2-2.4.2
+ *               commons-dbcp2-2.1.1
+ *               commons-logging-1.2
  */
 public class DBCPUtil {
 
 	private static Properties prop = new Properties();
 	private static DataSource dataSource;
+	
+	private static ThreadLocal<Connection> t = new ThreadLocal<>();
 	/**
 	 * 初始化连接池
 	 */
@@ -85,5 +92,26 @@ public class DBCPUtil {
 		Connection connection = pool.getConnection();
 		return connection;
 		
+	}
+	
+	/**
+	 * 
+	 * @Title: getConnection   
+	 * @Description: 获得Connection对象
+	 * @param: @return
+	 * @param: @throws SQLException      
+	 * @return: Connection      
+	 * @throws
+	 */
+	public static Connection getConnection() throws SQLException {
+		//1、首先从本地线程管理对象t中拿
+		Connection connection = t.get();
+		//2、如果没有的话就重新获取一个
+		if(connection ==null){
+			connection = dataSource.getConnection();
+			//3、将connection对象放入本地线程管理对象
+			t.set(connection);
+		}
+		return connection;
 	}
 }
