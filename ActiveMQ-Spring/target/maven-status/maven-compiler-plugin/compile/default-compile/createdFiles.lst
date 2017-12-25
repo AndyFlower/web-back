@@ -1,0 +1,6 @@
+com\slp\Filter\QueueMessageListener.class
+com\slp\Controller\MessageController.class
+com\slp\Service\ConsumerService.class
+com\slp\Service\ProducerService$2.class
+com\slp\Service\ProducerService$1.class
+com\slp\Service\ProducerService.class
