@@ -151,3 +151,81 @@ Redis的安全性：
       第一步：slaveof <masterip> <masterport>
       第二步：masterauth <master-password>
       使用info查看role角色即可知道是主服务或从服务
+
+
+redis哨兵模式：
+      有了主从复制的实现之后，我们如果想对主从服务器进行监控
+      哨兵的含义就是监控redis系统的运行状况，其主要功能有两点：
+      1、监控主数据库和从数据库是否正常运行
+      2、主数据库出现故障时，可以自动将从数据库转换为主数据库，实现自动切换
+      实现：在其中一台从服务器配置sentinel.conf
+      1、copy文件sentinel.conf到/usr/local/redis/etc/下
+      2、修改sentinel.conf文件
+         sentinel monitor mymaster 192.168.181.201 6379 #名称 ip 端口 投票选举次数
+	 sentinel down-after-milliseconds mymaster 6000 #默认1s检测一次，这里配置超时6000毫秒为宕机
+	 sentinel failover-timeout mymaster 900000
+	 sentinel can-failover mymaster yes
+	 sentinel parallel-syncs mymaster 2
+      3、启动sentinel哨兵
+         /usr/local/redis/bin/redis-server /usr/local/redis/etc/sentinel.conf --sentinel &
+      4、查看哨兵相关信息命令
+         /usr/local/redis/bin/redis-cli -h 192.168.181.202 -p 26379 info Sentinel
+      5、关闭主服务器查看集群信息
+         /usr/local/redis/bin/redis-cli -h 192.168.181.201 -p 6379 shutdown 
+
+redis简单事务：
+      首先是使用multi方法打开事务，然后进行设置，这是设置的数据都会放入队列里进行保存最后使用exec执行，把数据依次存储到redis中，使用discard方法取消事务
+      redis的事务不能保证同时成功或失败进行提交或回滚，所以redis的事务目前比较简单
+
+redis持久化机制：
+      redis是一个支持持久化的内存数据库，也就是说redis需要经常将内存中的数据同步到硬盘来保证持久化。redis持久化的两种方式：
+      1、snapshotting(快照)默认方式，将内存中已快照的方式写入到二进制文件中，默认为dump.rdb,可以通过配置设置自动做快照持久化的方式，我们可以配置redis在n秒内如果超过m个key则修改就自动做快照
+         snapshotting设置：
+	     save 800 1 #800秒内如果超过一个key被修改则发起快照保护
+	     save 300 10 #300秒内如果超过10个key被修改，则发起快照保存
+	     save 60 10000
+      2、append-only file(编写aof)的方式（类似与oracle日志）由于快照方式是在一定时间间隔做一次，所以可能发生redis意外down的情况就会丢失最后一次快照后的所有修改的数据，aof比快照的方式有更好的持久化性，是由于在使用sof时，redis会将每一个收到的写命令都通过write函数追加到命令中，当redis重新启动时会重新执行文件中保存的写命令来在内存中重建这个数据库的内容，这个文件在bin目录下：
+        appendonly.aof aof不是立即写到硬盘上，可以通过配置文件修改强制写到硬盘上
+	aof设置：
+	     appendonly yes #启动aof持久化方式有三种修改方式redis.conf配置文件
+	     appendfsync always #收到写命令就立即写入到磁盘，效率最慢，但是保证完全的持久化
+	     appendfsync everysec #收到写命令就立即写入到磁盘，效率最慢，但是保证完全的持久化
+	     appendfsync no # 完全依赖os性能最好持久化没保证
+
+redis发布与订阅消息：
+      使用subscribe【频道】进行订阅监听
+      使用publish【频道】【发布内容】进行发布消息广播
+
+
+redis集群的搭建：
+      集群搭建：至少要三个master
+      1、创建一个文件夹redis-cluster,然后在其下面建立文件夹
+      2、把之前的redis.conf配置文件拷贝到建立的文件下，进行修改各文件配置
+         daemonize yes
+	 port 700*
+	 bind 192.168.181.201(必须绑定当前机器的ip)
+	 dir /usr/local/redis-cluster/700*/  (指定数据文件存放位置 不然会丢失数据)
+	 cluster-enabled yes  (启动集群模式)
+	 cluster-config-file nodes700*.conf 
+	 cluster-node-timeout 5000
+	 appendonly yes
+      3、把修改后的配置文件，分别copy到各个文件夹下，注意每个文件修改端口号，并且nodes文件也不相同
+      4、由于redis集群需要使用ruby命名，所以我们需要安装ruby
+         yum install ruby
+	 yum install rubygems
+	 gen install redis(安装redis和ruby的接口)
+      5、分别启动redis实例，然后检查是否启动成功
+         /usr/local/redis/bin/redis-server /usr/local/redis-cluster/7001/redis.conf
+	 ps -ef|grep redis #查看是否启动成功
+      6、首先到redis安装目录下，然后执行redis-trib.rb命令
+         cd /home/sanglp/software/src
+	 ./redis-trib.rb create --replicas 1 192.168.181.201:7001 192.168.181.201:7002 192.168.181.201:7003 192.168.181.201:7004 192.168.181.201:7005 192.168.181.201:7006
+
+问题：
+    1、主从复制master上显示slave数量为0  slave上显示有master的信息日志中显示 Error condition on socket for SYNC: Connection refused
+       答：将redis.conf中的bind 127.0.0.1 修改为bind 0.0.0.0  或者直接将bind 127.0.0.1 注释掉
+       如果redis主服务器绑定了127.0.0.1那么跨服务器IP的访问就会失败，从服务器用IP和端口访问主的时候，主服务器发现本机6379端口绑定了127.0.0.1也就是只有本机才能访问，外部请求会被过滤，测试环境考虑bind 0.0.0.0 线上生产环境建议绑定IP地址
+    2、redis手动指定log日志文件
+       答：在redis.conf文件中找到logleve notice在后面的logfile中添加"/usr/local/redis/etc/redis.log"
+    3、从节点上写数据
+       答：(error) READONLY You can't write against a read only slave.
