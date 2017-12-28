@@ -62,3 +62,4 @@ webdemo01/target/m2e-jee/web-resources/META-INF/maven/webdemo01/webdemo01/pom.pr
 Utils/.classpath
 Utils/target/classes/META-INF/maven/com.slp/Utils/pom.properties
 *.properties
+Web-back/target
