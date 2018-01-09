@@ -1,0 +1,43 @@
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+
+public class UserController extends MultiActionController{
+
+   public ModelAndView home(HttpServletRequest request,
+      HttpServletResponse response) throws Exception {
+      ModelAndView model = new ModelAndView("home");
+      model.addObject("message", "Home");
+      return model;
+   }
+
+   public ModelAndView add(HttpServletRequest request,
+      HttpServletResponse response) throws Exception {
+      ModelAndView model = new ModelAndView("user");
+      model.addObject("message", "Add");
+      return model;
+   }
+
+   public ModelAndView remove(HttpServletRequest request,
+      HttpServletResponse response) throws Exception {
+      ModelAndView model = new ModelAndView("user");
+      model.addObject("message", "Remove");
+      return model;
+   }
+}
+
+
+ <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name = "prefix" value = "/WEB-INF/jsp/"/>
+      <property name = "suffix" value = ".jsp"/>
+   </bean>
+
+   <bean class = "org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+   <bean name = "/home.htm"
+      class = "com.slp.controller.UserController" />
+   <bean name = "/user/*.htm"
+      class = "com.slp.controller.UserController" />
+
+

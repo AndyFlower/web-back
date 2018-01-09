@@ -1,0 +1,30 @@
+<beans>
+   <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name = "prefix" value = "/WEB-INF/jsp/"/>
+      <property name = "suffix" value = ".jsp"/>
+   </bean>
+
+   <bean class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name = "mappings">
+         <props>
+            <prop key = "/welcome.htm">welcomeController</prop>
+            <prop key = "/helloWorld.htm">helloController</prop>
+         </props>
+      </property>
+   </bean>
+
+   <bean id = "helloController" class = "com.slp.controller.HelloController" />
+
+   <bean id = "welcomeController" class = "com.slp.controller.WelcomeController"/>
+</beans>
+
+public class HelloController extends AbstractController{
+
+   @Override
+   protected ModelAndView handleRequestInternal(HttpServletRequest request,
+      HttpServletResponse response) throws Exception {
+      ModelAndView model = new ModelAndView("hello");
+      model.addObject("message", "Hello World!");
+      return model;
+   }
+}

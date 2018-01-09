@@ -1,0 +1,43 @@
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+
+public class UserController extends MultiActionController{
+
+   public ModelAndView home(HttpServletRequest request,
+      HttpServletResponse response) throws Exception {
+      ModelAndView model = new ModelAndView("user");
+      model.addObject("message", "Home");
+      return model;
+   }
+
+   public ModelAndView add(HttpServletRequest request,
+      HttpServletResponse response) throws Exception {
+      ModelAndView model = new ModelAndView("user");
+      model.addObject("message", "Add");
+      return model;
+   }
+
+   public ModelAndView remove(HttpServletRequest request,
+      HttpServletResponse response) throws Exception {
+      ModelAndView model = new ModelAndView("user");
+      model.addObject("message", "Remove");
+      return model;
+   }
+}
+
+<bean class = "com.slp.controller.UserController">
+   <property name = "methodNameResolver">
+      <bean class = "org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+         <property name = "mappings">
+            <props>
+               <prop key = "/user/home.htm">home</prop>
+               <prop key = "/user/add.htm">add</prop>
+               <prop key = "/user/remove.htm">update</prop>
+            </props>
+         </property>
+      </bean>
+   </property>
+</bean>
