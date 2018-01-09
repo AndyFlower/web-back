@@ -53,7 +53,6 @@ webdemo01/target/m2e-jee/web-resources/META-INF/maven/webdemo01/webdemo01/pom.pr
 .metadata/.plugins/org.eclipse.m2e.core/nexus/d9d714e11cb097b3ffcec91cccc65d3e/_3.cfs
 .metadata/.plugins/org.eclipse.m2e.core/nexus/d9d714e11cb097b3ffcec91cccc65d3e/_2_1.del
 .metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser
-*.xml
 .metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.wst.sse.ui.prefs
 .metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ant.ui.prefs
 .metadata/.plugins/org.eclipse.core.runtime/.settings/com.genuitec.myeclipse.compatibility.prefs
@@ -63,3 +62,19 @@ Utils/.classpath
 Utils/target/classes/META-INF/maven/com.slp/Utils/pom.properties
 *.properties
 Web-back/target
+.metadata/.log
+MergeDemo/target
+MergeDemo/target
+ActiveMQ-Spring/.idea
+ActiveMQ-Spring/out
+ActiveMq01/.idea
+MergeDemo/.idea
+spring-tutorial/.idea
+springapp/.idea
+ActiveMQ-Spring/target
+springapp/out
+Utils/target/classes/META-INF/maven/com.slp/Utils/pom.xml
+Web-back/.idea/compiler.xml
+Web-back/.idea/inspectionProfiles/Project_Default.xml
+Web-back/.idea/workspace.xml
+Web-back/.idea/modules.xml

@@ -1,0 +1,33 @@
+Let's take quick look at the parts of our application that we have created so far.
+1、An introduction page, 'index.jsp', the welcome page of the application. It was used to test our setup was correct. We will later change this to actually provide a link into our application.
+2、A DispatcherServlet (front controller) with a corresponding 'springapp-servlet.xml' configuration file.
+3、A page controller, HelloController, with limited functionality – it just returns a ModelAndView. We currently have an empty model and will be providing a full model later on.
+4、A unit test class for the page controller, HelloControllerTests, to verify the name of the view is the one we expect.
+5、A view, 'hello.jsp', that again is extremely basic. The good news is the whole setup works and we are now ready to add more functionality.
+
+
+Right now the controller specifies the full path of the view, which creates an unnecessary dependency between the controller and the view. Ideally we would like to map to the view using a logical name, allowing us to switch the view without having to change the controller. You can set this mapping in a properties file if you like using a ResourceBundleViewResolver and a SimpleUrlHandlerMapping class. For the basic mapping of a view to a location, simply set a prefix and a suffix on the InternalResourceViewResolver. This second approach is the one that we will implement now, so we modify the 'springapp-servlet.xml' and declare a 'viewResolver' entry. By choosing the JstlView, it will enable us to use JSTL in combination with message resource bundles as well as provide us with the support for internationalization.
+springapp-servlet.xml:
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+
+We implemented a domain object Product and a service interface ProductManager and concrete class SimpleProductManager all as POJOs.
+We wrote unit tests for all the classes we implemented.
+We didn't write a line of code to do with Spring. This is an example of how non-invasive the Spring Framework really is. One of its core aims is to enable developers to focus on tackling the most important task of all: to deliver value by modelling and implementing business requirements. Another of its aims is to make following best practices easy, such as implementing services using interfaces and unit testing as much as is pragmatic given project constraints. Over the course of this tutorial, you'll see the benefits of designing to interfaces come to life.
+
+
+1、We renamed our controller to InventoryController and gave it a reference to a ProductManager so we could retrieve a list of products to display./2、Next we modified the JSP page to use a message bundle for static text and also added a forEach loop to show the dynamic list of products.
+2、Then we defined some test data to populate business objects we modified the JSP page to use a message bundle for static text and also added a forEach loop to show the dynamic list of products.
+3、Next we modified the JSP page to use a message bundle for static text and also added a forEach loop to show the dynamic list of products.
+4、After this worked we created a form to provide the ability to increase the prices. Next we modified the JSP page to use a message bundle for static text and also added a forEach loop to show the dynamic list of products.
+
+
+First we modified the service layer to use the ProductDao.
+We then had to fix some failing service and web layer tests.
+Next we introduced a new applicationContext to separate the service and persistence layer configuration from the web layer configuration.
+We also defined some transaction management for the service layer and configured a connection pool for the database connections.
+Finally we built the reconfigured application and tested that it still worked.

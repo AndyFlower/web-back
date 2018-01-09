@@ -1,4 +1,4 @@
-分布式系统产生的原因：
+﻿分布式系统产生的原因：
     第一、互联网环境的应用系统，业务需求复杂，必须进行系统级别的垂直拆分，保证各个业务的业务清晰，格自部署对外业务。
     第二、针对的用户群体广泛，就存在高并发的问题，基于此我们会把不同的应用系统部署到不同的节点上，也需要把不同的数据，分散到不同的物理节点上。
     第三、分布式系统的产生，出现了数据的一致性、安全性、可扩展性、服务器的高可用、高承载能力。
@@ -213,13 +213,46 @@ redis集群的搭建：
       4、由于redis集群需要使用ruby命名，所以我们需要安装ruby
          yum install ruby
 	 yum install rubygems
-	 gen install redis(安装redis和ruby的接口)
+	 gem install redis(安装redis和ruby的接口)
       5、分别启动redis实例，然后检查是否启动成功
          /usr/local/redis/bin/redis-server /usr/local/redis-cluster/7001/redis.conf
 	 ps -ef|grep redis #查看是否启动成功
       6、首先到redis安装目录下，然后执行redis-trib.rb命令
          cd /home/sanglp/software/src
 	 ./redis-trib.rb create --replicas 1 192.168.181.201:7001 192.168.181.201:7002 192.168.181.201:7003 192.168.181.201:7004 192.168.181.201:7005 192.168.181.201:7006
+	                                  【主节点和slave的比例】 
+					  三主三从
+      7、验证
+         /usr/local/redis/bin/redis-cli -c -h 192.168.181.201 -p 7001
+      
+      8、集群操作命令
+         create  :构建集群
+	 fix :单点修复
+	 check：集群验证
+	 add-node：添加节点
+	 del-node：删除节点
+	 reshard:重新分片
+         
+集群命令：
+      CLUSTER INFO  打印集群的信息
+      CLUSTER NODES 列出集群当前已知的所有节点（node），以及这些节点的相关信息
+
+      CLUSTER MEET <ip> <port>  将ip和port所指定的节点添加到集群当中，让它成为集群的一份子
+      CLUSTER FORGET <node_id>  从集群中移除node_id指定的节点
+      CLUSTER REPLICATE <node_id>  将当前节点设置为node_id指定的节点的从节点
+      CLUSTER SAVECONFIG  将节点的配置文件保存到硬盘里面
+
+      CLUSTER ADDSLOTS <slot> [slot...] 将一个或多个槽指派给当前节点
+      CLUSTER DELSLOTS <slot> [slot]  移除一个或多个槽对当前节点的指派
+      CLUSTER FLUSHLOTS 移除指派给当前节点的所有槽，让当前节点变成一个没有指派任何槽的节点
+      CLUSTER SETSLOT <slot> NODE <node_id> 将槽slot指派给node_id指定的节点，如果槽已经指派给另一个节点那么先让另一个节点删除该槽，然后再进行指派
+      CLUSTER SETSLOT <slot> MIGRATING <node_id>将本节点的槽slot迁移到node_id指定的节点中
+      CLUSTER SETSLOT <slot> IMPORTING <node_id> 从node_id指定的节点中导入槽slot到本节点
+      CLUSTER SETSLOT <slot> STABLE 取消对槽slot的导入或者迁移
+
+      CLUSTER KEYSLOT <key> 计算键key应该被放置在哪个槽上
+      CLUSTER COUNTKEYSINSLOT <slot> 返回槽slot目前包含的键值对数量
+      CLUSTER GENKEYSINSLOT <slot> <count> 返回count个slot槽中的键
 
 问题：
     1、主从复制master上显示slave数量为0  slave上显示有master的信息日志中显示 Error condition on socket for SYNC: Connection refused
@@ -229,3 +262,22 @@ redis集群的搭建：
        答：在redis.conf文件中找到logleve notice在后面的logfile中添加"/usr/local/redis/etc/redis.log"
     3、从节点上写数据
        答：(error) READONLY You can't write against a read only slave.
+    4、redis requires Ruby version >= 2.2.2问题
+       答：解决办法是 先安装rvm，再把ruby版本提升至2.3.3
+            1.安装curl
+               sudo yum install curl
+            2. 安装RVM
+               curl -L get.rvm.io | bash -s stable 
+            3. source /usr/local/rvm/scripts/rvm
+            4. 查看rvm库中已知的ruby版本
+                rvm list known
+            5. 安装一个ruby版本
+                rvm install 2.3.3
+            6. 使用一个ruby版本
+                rvm use 2.3.3
+            7. 设置默认版本
+                rvm remove 2.0.0
+            8. 卸载一个已知版本
+                ruby --version
+            9. 再安装redis就可以了
+                gem install redis
