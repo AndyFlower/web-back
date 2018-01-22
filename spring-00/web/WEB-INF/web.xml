@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+
+    <!--Dispatcher初始化的过程，Spring MVC会在你web应用的WEB-INF目录下查找一个名为[servlet-name]-servlet.xml的配置文件，并创建其中所定义的bean。如果在全局上下文中存在相同名字的bean，则它们将被新定义的同名bean覆盖。-->
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+
+        <!--任意实现类WebApplicationContext接口的类，这个类会初始化servlet所需要用到的上下文对象，默认情况下，框架会使用一个XmlWebApplicationContext对象-->
+        <!--<init-param>
+            <param-name>contextClass</param-name>
+            <param-value></param-value>
+        </init-param>-->
+        <!--一个指定了上下文配置文件路径的字符串，该值会被传入给contextClass所指定的上下文实例对象，多个之间以逗号分隔-->
+        <!--<init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value></param-value>
+        </init-param>-->
+        <!--默认是[servlet-name]-servlet-->
+        <!--<init-param>
+            <param-name>namespace</param-name>
+            <param-value></param-value>
+        </init-param>-->
+
+    </servlet>
+<servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+</web-app>
