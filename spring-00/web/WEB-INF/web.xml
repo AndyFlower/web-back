@@ -40,4 +40,8 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <!--Servlet默认容器错误页面的定制化-->
+    <error-page>
+        <location>/error</location>
+    </error-page>
 </web-app>
