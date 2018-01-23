@@ -18,7 +18,6 @@ public class HelloController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String printHello(ModelMap model) {
         logger.info("进入请求");
-        logger.error("进入请求");
         model.addAttribute("msg", "Spring MVC Hello World");
         model.addAttribute("name", "sanglp");
         return "hello";
