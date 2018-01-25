@@ -6,6 +6,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="com.slp.web"/>
+    <context:component-scan base-package="com.slp.service"/>
+    <context:component-scan base-package="com.slp.service.impl"/>
+    <context:component-scan base-package="com.slp.dao"/>
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
 
@@ -23,5 +26,12 @@
     <mvc:resources mapping="/js/**" location="/js/" />
     <mvc:resources mapping="/images/**" location="/images/" />
     <mvc:resources mapping="/css/**" location="/css/" />
+    <mvc:resources mapping="/fonts/**" location="/fonts/" />
     <mvc:resources mapping="/*.html" location="/" />
+
+    <!--文件上传解析器 -->
+    <!--Spring MVC默认不能识别multipart格式的文件内容 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+    </bean>
 </beans>

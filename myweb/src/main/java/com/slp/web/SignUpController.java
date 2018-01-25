@@ -2,6 +2,7 @@ package com.slp.web;
 
 import com.slp.dto.UserInfo;
 import com.slp.service.UserInfoService;
+import com.slp.util.UUIDUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,54 +14,53 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author sanglp
- * @create 2018-01-23 9:04
- * @desc 登陆入口
+ * @create 2018-01-25 13:50
+ * @desc 注册入口
  **/
 @Controller
-public class LoginController {
+public class SignUpController {
     private Logger logger= Logger.getLogger(this.getClass());
+
     @Autowired
     private UserInfoService userInfoService;
     /**
-     * 进入登陆首页页面
+     * 进入注册页面
      * @param map
      * @return
      */
-    @RequestMapping(value = "login",method = {RequestMethod.POST,RequestMethod.GET})
-    public String login(ModelMap map){
-       //进入登陆页面
-        return "login";
-
+    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
+    public String signUp(ModelMap map){
+        //进入注册页面
+        return "signUp";
     }
 
     /**
-     * 获取用户信息监测是否已注册可以登录
+     * 注册页面提交
      * @param map
-     * @param request
      * @return
      */
-    @RequestMapping(value = "loginConfirm",method = {RequestMethod.POST,RequestMethod.GET})
-    public String loginConfirm(ModelMap map, HttpServletRequest request){
-        //登陆提交页面
+    @RequestMapping(value = "/signUpConfirm", method = RequestMethod.GET)
+    public String signUpConfirm(ModelMap map, HttpServletRequest request){
+        String name  = request.getParameter("name");
+        logger.info("name="+name);
         String email = request.getParameter("email");
         logger.info("email="+email);
         String password = request.getParameter("password");
         logger.info("password="+password);
+        String password2 = request.getParameter("password2");
+        logger.info("password2="+password2);
         UserInfo userInfo = new UserInfo();
+        userInfo.setUserName(name);
         userInfo.setEmail(email);
         userInfo.setUserPassword(password);
-        UserInfo user= userInfoService.selectUserByEmail(userInfo);
-
-        if (user==null){
-            return "signUp";
+        userInfo.setId(UUIDUtil.generatorUUID());
+        int i = userInfoService.save(userInfo);
+        if(i==1){
+            logger.info("保存用户信息成功，跳转到登陆页面");
+            map.addAttribute("userName",name);
+            return "login";
+        }else {
+        return "signUp";
         }
-        logger.info(user.getEmail());
-        logger.info(user.getId());
-        if(!user.getUserPassword().equals(password)){
-            map.addAttribute("msg","请输入正确的密码");
-        }
-        logger.info("校验通过");
-        return "login";
-
     }
 }
