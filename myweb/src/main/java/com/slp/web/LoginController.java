@@ -58,9 +58,15 @@ public class LoginController {
         logger.info(user.getId());
         if(!user.getUserPassword().equals(password)){
             map.addAttribute("msg","请输入正确的密码");
+            return "login";
+        }else {
+            request.getSession().setAttribute("email",user.getEmail());
+            request.getSession().setAttribute("userName",user.getUserName());
+            request.getSession().setAttribute("userId",user.getId());
+            logger.info("校验通过");
+            return "index";
         }
-        logger.info("校验通过");
-        return "login";
+
 
     }
 }
