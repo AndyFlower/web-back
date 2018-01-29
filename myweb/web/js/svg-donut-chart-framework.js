@@ -10,7 +10,7 @@
         this.snap = Snap(el);
 
         this.startShowAnimation = Donut.prototype.startShowAnimation;
-  
+
         this.init();
     }
 
@@ -88,7 +88,7 @@
                 stroke: '0',
                 fill: 'none',
                 strokeWidth: 0,
-              color:''
+                color: ''
             });
 
             y += step;
@@ -105,9 +105,9 @@
 
         return "M" + start.x + "," + start.y + " A" + radius + "," + radius + " 0 " + largeArc + ",1 " + end.x + "," + end.y;
     };
-      
+
     /***********************************************************
-     * Animate an arc throw his degrees 
+     * Animate an arc throw his degrees
      ***********************************************************/
     Donut.prototype.animateArcByDegrees = function (arc, duration, callback) {
         var s = this.snap,
@@ -139,7 +139,7 @@
     };
 
     /***********************************************************
-     * Animate an arc throw his stroke width 
+     * Animate an arc throw his stroke width
      ***********************************************************/
     Donut.prototype.animateArcByStroke = function (arc, strokeWidthStart, strokeWidthEnd, duration, callback) {
         var s = this.snap,
@@ -177,7 +177,7 @@
     Donut.prototype.createLegendCircle = function (c) {
         c.draw = this.snap.circle(c.x, c.y, c.radius);
         c.draw.attr({
-          fill: c.color
+            fill: c.color
         });
     };
 
@@ -185,8 +185,8 @@
      * Start show animation of legend circle
      ***********************************************************/
     Donut.prototype.animateShowLegendCircle = function (c, duration) {
-        c.draw.transform('s0,'+c.x+','+c.y)
-        c.draw.animate({ transform: 's1,'+c.x+','+c.y }, duration, mina.bounce);
+        c.draw.transform('s0,' + c.x + ',' + c.y)
+        c.draw.animate({transform: 's1,' + c.x + ',' + c.y}, duration, mina.bounce);
     };
 
     /***********************************************************
@@ -194,25 +194,25 @@
      ***********************************************************/
     Donut.prototype.startShowAnimationOneEntry = function (d, percentStart, percentEnd, center, radius, callback) {
         d.arc = {
-          percentStart : percentStart,
-          percentEnd : percentEnd,
-          degreesStart : parseFloat(percentStart) / 100 * 360,
-          degreesEnd : parseFloat(percentEnd) / 100 * 360,
-          color : d.color,
-          strokeWidth : 40,
-          center: center, 
-          radius: radius,
+            percentStart: percentStart,
+            percentEnd: percentEnd,
+            degreesStart: parseFloat(percentStart) / 100 * 360,
+            degreesEnd: parseFloat(percentEnd) / 100 * 360,
+            color: d.color,
+            strokeWidth: 40,
+            center: center,
+            radius: radius,
         }
-      
+
         this.animateArcByDegrees(d.arc, 900, callback);
-      
+
         d.legend.circle = {
-          color : d.color,
-          x : d.legend.center.x,
-          y : d.legend.center.y,
-          radius: d.legend.baseCircleRadius + 2
+            color: d.color,
+            x: d.legend.center.x,
+            y: d.legend.center.y,
+            radius: d.legend.baseCircleRadius + 2
         }
-        
+
         this.createLegendCircle(d.legend.circle);
         this.animateShowLegendCircle(d.legend.circle, 400);
     };
@@ -235,19 +235,19 @@
         var s = this.snap,
             o = this.opts,
             data = o.data;
-      
-        if(this.previousHighlightElement == d){
-          return;
+
+        if (this.previousHighlightElement == d) {
+            return;
         }
-      
-        if(this.previousHighlightElement){
-          this.normalElement(this.previousHighlightElement);
+
+        if (this.previousHighlightElement) {
+            this.normalElement(this.previousHighlightElement);
         }
         this.previousHighlightElement = d;
-      
+
         var c = d.legend.circle;
-        c.draw.animate({ transform: 's1.3,'+c.x+','+c.y }, 200, mina.bounce);
-      
+        c.draw.animate({transform: 's1.3,' + c.x + ',' + c.y}, 200, mina.bounce);
+
         this.animateArcByStroke(d.arc, d.arc.strokeWidth, d.arc.strokeWidth + 20, 500);
     };
 
@@ -259,17 +259,17 @@
             o = this.opts,
             t = this,
             data = o.data;
-      
+
         var c = d.legend.circle;
-        c.draw.animate({ transform: 's1,'+c.x+','+c.y }, 500, mina.bounce);
-      
-        this.animateArcByStroke(d.arc, d.arc.strokeWidth + 6, d.arc.strokeWidth, 500, function(){
-          d.arc.draw.mouseover(function () {
-            t.hightlightElement(d);
-          });
-          d.arc.draw.click(function () {
-            t.hightlightElement(d);
-          });
+        c.draw.animate({transform: 's1,' + c.x + ',' + c.y}, 500, mina.bounce);
+
+        this.animateArcByStroke(d.arc, d.arc.strokeWidth + 6, d.arc.strokeWidth, 500, function () {
+            d.arc.draw.mouseover(function () {
+                t.hightlightElement(d);
+            });
+            d.arc.draw.click(function () {
+                t.hightlightElement(d);
+            });
         });
     };
 
@@ -281,32 +281,32 @@
             t = this,
             l = d.legend,
             a = d.arc;
-          
+
         l.button = s.rect(l.center.x - 2 * l.baseCircleRadius, l.center.y - step / 2, 200, step);
 
         l.button.attr({
-          opacity: 0,
-          cursor: 'pointer',
-          color:'red'
+            opacity: 0,
+            cursor: 'pointer',
+            color: 'red'
         });
 
         l.button.mouseover(function () {
-          t.hightlightElement(d);
-          
-          
+            t.hightlightElement(d);
+
+
         });
         l.button.click(function () {
-          t.hightlightElement(d);
-          
+            t.hightlightElement(d);
+
         });
-      
+
         a.draw.mouseover(function () {
-          t.hightlightElement(d);
-            
-          
+            t.hightlightElement(d);
+
+
         });
         a.draw.click(function () {
-          t.hightlightElement(d);
+            t.hightlightElement(d);
         });
     };
 
@@ -318,7 +318,7 @@
             o = this.opts,
             t = this,
             data = o.data;
-      
+
         for (var i = 0; i < data.length; i++) {
             this.initInteraction(data[i], 30);
         }
@@ -328,50 +328,50 @@
      * Start show animation of donut and legend for all data entry
      ***********************************************************/
     Donut.prototype.startShowAnimation = function (index, totalPct, callback) {
-        if(index && !totalPct){
-          callback = index;
-          index = totalPct;
+        if (index && !totalPct) {
+            callback = index;
+            index = totalPct;
         }
-      
+
         var s = this.snap,
             o = this.opts,
             t = this,
             data = o.data;
-      
+
         var i = 0,
             total = 0;
-      
-        if(index){
-          i = index;
-          total = totalPct;
-        }else{
-          for(var j = 0 ; j < data.length ; j++){
-            var d = data[j];
-            if(d.arc && d.arc.draw){
-              d.arc.draw.remove();
+
+        if (index) {
+            i = index;
+            total = totalPct;
+        } else {
+            for (var j = 0; j < data.length; j++) {
+                var d = data[j];
+                if (d.arc && d.arc.draw) {
+                    d.arc.draw.remove();
+                }
+                if (d.legend && d.legend.circle && d.legend.circle.draw) {
+                    d.legend.circle.draw.remove();
+                }
             }
-            if(d.legend && d.legend.circle && d.legend.circle.draw){
-              d.legend.circle.draw.remove();
-            }
-          }
-          
-          Snap.animate(0, 0.5, function (value) {
-              Donut.prototype.circle.attr({
-                opacity: value
-              });
-          }, 800);
+
+            Snap.animate(0, 0.5, function (value) {
+                Donut.prototype.circle.attr({
+                    opacity: value
+                });
+            }, 800);
         }
-      
-        if(data.length > i){
-          var d = data[i];
-          this.startShowAnimationOneEntry(d, total, total + d.value, o.center, o.radius, function(){
-            t.startShowAnimation(i+1, total + d.value, callback);
-          });
-        }else{
-          this.initInteractions();
-          if(callback){
-            callback();
-          }
+
+        if (data.length > i) {
+            var d = data[i];
+            this.startShowAnimationOneEntry(d, total, total + d.value, o.center, o.radius, function () {
+                t.startShowAnimation(i + 1, total + d.value, callback);
+            });
+        } else {
+            this.initInteractions();
+            if (callback) {
+                callback();
+            }
         }
     };
 
@@ -380,15 +380,15 @@
      ***********************************************************/
     $.fn.donut = function (opts) {
         var donuts = [];
-      
+
         this.each(function () {
             donuts.push(new Donut(this, opts));
         });
-      
-        if(donuts.length == 1){
-          return donuts[0];
+
+        if (donuts.length == 1) {
+            return donuts[0];
         }
-      
+
         return donuts;
     };
 })(jQuery, document, window, Snap);
@@ -407,6 +407,6 @@ var donut = $('#svg').donut({
     data: programmingSkills
 });
 
-donut.startShowAnimation(function(){
-  $('button').attr('disabled', false);
+donut.startShowAnimation(function () {
+    $('button').attr('disabled', false);
 });

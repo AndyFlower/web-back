@@ -1,0 +1,72 @@
+[INFO] [14:22:35.999] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: com.mysql.jdbc.Driver@46b33718
+[INFO] [14:22:36.010] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: oracle.jdbc.driver.OracleDriver@189dc2ed
+[INFO] [14:22:36.016] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: org.postgresql.Driver@3e5dc7c9
+[INFO] [14:22:36.134] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: SQLServerDriver:2
+[INFO] [14:22:36.134] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnectionUrlWithSchema:108 --> getConnectionUrlWithSchema, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[INFO] [14:22:36.135] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getTableNames:58 --> getTableNames, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[INFO] [14:22:36.136] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnectionUrlWithSchema:108 --> getConnectionUrlWithSchema, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[DEBUG] [14:22:36.136] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:43 --> config.getUsername()culsite
+[DEBUG] [14:22:36.136] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:44 --> config.getPassword()culsite
+[INFO] [14:22:36.443] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:52 --> getConnection, connection url: oracle.jdbc.driver.T4CConnection@7833df0d
+[INFO] [14:28:41.565] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: com.mysql.jdbc.Driver@1748157a
+[INFO] [14:28:41.582] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: oracle.jdbc.driver.OracleDriver@70c3b3b7
+[INFO] [14:28:41.588] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: org.postgresql.Driver@5f91d871
+[INFO] [14:28:41.756] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: SQLServerDriver:2
+[INFO] [14:28:41.757] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnectionUrlWithSchema:108 --> getConnectionUrlWithSchema, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[INFO] [14:28:41.757] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getTableNames:58 --> getTableNames, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[INFO] [14:28:41.757] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnectionUrlWithSchema:108 --> getConnectionUrlWithSchema, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[DEBUG] [14:28:41.758] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:43 --> config.getUsername()culsite
+[DEBUG] [14:28:41.758] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:44 --> config.getPassword()culsite
+[INFO] [14:28:42.064] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:52 --> getConnection, connection url: oracle.jdbc.driver.T4CConnection@6add6e80
+[INFO] [14:31:18.588] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.ConfigHelper.findConnectorLibPath:213 --> jar resource: file:/D:/web-back/web-back/myweb/target/classes/logback.xml
+[INFO] [14:31:18.590] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.bridge.MybatisGeneratorBridge.generate:66 --> connectorLibPath: D:\web-back\web-back\myweb\target\classes\lib\ojdbc14.jar
+[INFO] [14:31:18.595] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnectionUrlWithSchema:108 --> getConnectionUrlWithSchema, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[INFO] [14:32:43.108] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.ConfigHelper.findConnectorLibPath:213 --> jar resource: file:/D:/web-back/web-back/myweb/target/classes/logback.xml
+[INFO] [14:32:43.110] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.bridge.MybatisGeneratorBridge.generate:66 --> connectorLibPath: D:\web-back\web-back\myweb\target\classes\lib\ojdbc14.jar
+[INFO] [14:32:43.111] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnectionUrlWithSchema:108 --> getConnectionUrlWithSchema, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[INFO] [17:47:13.639] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: com.mysql.jdbc.Driver@7fe6ca6f
+[INFO] [17:47:13.649] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: oracle.jdbc.driver.OracleDriver@3d0613e3
+[INFO] [17:47:13.655] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: org.postgresql.Driver@51320fe5
+[INFO] [17:47:13.728] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.<clinit>:32 --> load driver class: SQLServerDriver:2
+[INFO] [17:47:13.729] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnectionUrlWithSchema:108 --> getConnectionUrlWithSchema, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[INFO] [17:47:13.729] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getTableNames:58 --> getTableNames, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[INFO] [17:47:13.729] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnectionUrlWithSchema:108 --> getConnectionUrlWithSchema, connection url: jdbc:oracle:thin:@192.168.2.58:1521:LOYUTFDB
+[DEBUG] [17:47:13.730] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:43 --> config.getUsername()culsite
+[DEBUG] [17:47:13.730] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:44 --> config.getPassword()culsite
+[INFO] [17:47:14.014] [JavaFX Application Thread] []
+				com.slp.mybatis.generator.util.DbUtil.getConnection:52 --> getConnection, connection url: oracle.jdbc.driver.T4CConnection@5f671ecc

@@ -1,43 +1,41 @@
-
 /* Top Stats Show Hide */
-$(document).ready(function(){
-    $("#topstats").click(function(){
+$(document).ready(function () {
+    $("#topstats").click(function () {
         $(".topstats").slideToggle(100);
     });
 });
 
 
 /* Sidepanel Show-Hide */
-$(document).ready(function(){
-    $(".sidepanel-open-button").click(function(){
+$(document).ready(function () {
+    $(".sidepanel-open-button").click(function () {
         $(".sidepanel").toggle(100);
     });
 });
 
 
-
 /* Sidebar Show-Hide On Mobile */
-$(document).ready(function(){
-    $(".sidebar-open-button-mobile").click(function(){
+$(document).ready(function () {
+    $(".sidebar-open-button-mobile").click(function () {
         $(".sidebar").toggle(150);
     });
 });
 
 
 /* Sidebar Show-Hide */
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $('.sidebar-open-button').on('click', function(){
-        if($('.sidebar').hasClass('hidden')){
+    $('.sidebar-open-button').on('click', function () {
+        if ($('.sidebar').hasClass('hidden')) {
             $('.sidebar').removeClass('hidden');
             $('.content').css({
-                'marginLeft' : 250
-            });  
-        }else{
+                'marginLeft': 250
+            });
+        } else {
             $('.sidebar').addClass('hidden');
             $('.content').css({
-                'marginLeft' : 0
-            });    
+                'marginLeft': 0
+            });
         }
     });
 
@@ -45,53 +43,49 @@ $(document).ready(function(){
 
 
 /* ===========================================================
-PANEL TOOLS
-===========================================================*/
+ PANEL TOOLS
+ ===========================================================*/
 /* Minimize */
-$(document).ready(function(){
-  $(".panel-tools .minimise-tool").click(function(event){
-  $(this).parents(".panel").find(".panel-body").slideToggle(100);
+$(document).ready(function () {
+    $(".panel-tools .minimise-tool").click(function (event) {
+        $(this).parents(".panel").find(".panel-body").slideToggle(100);
 
-  return false;
-}); 
+        return false;
+    });
 
- }); 
+});
 
 /* Close */
-$(document).ready(function(){
-  $(".panel-tools .closed-tool").click(function(event){
-  $(this).parents(".panel").fadeToggle(400);
+$(document).ready(function () {
+    $(".panel-tools .closed-tool").click(function (event) {
+        $(this).parents(".panel").fadeToggle(400);
 
-  return false;
-}); 
+        return false;
+    });
 
- }); 
+});
 
- /* Search */
-$(document).ready(function(){
-  $(".panel-tools .search-tool").click(function(event){
-  $(this).parents(".panel").find(".panel-search").toggle(100);
+/* Search */
+$(document).ready(function () {
+    $(".panel-tools .search-tool").click(function (event) {
+        $(this).parents(".panel").find(".panel-search").toggle(100);
 
-  return false;
-}); 
+        return false;
+    });
 
- }); 
-
-
+});
 
 
 /* expand */
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $('.panel-tools .expand-tool').on('click', function(){
-        if($(this).parents(".panel").hasClass('panel-fullsize'))
-        {
+    $('.panel-tools .expand-tool').on('click', function () {
+        if ($(this).parents(".panel").hasClass('panel-fullsize')) {
             $(this).parents(".panel").removeClass('panel-fullsize');
         }
-        else
-        {
+        else {
             $(this).parents(".panel").addClass('panel-fullsize');
- 
+
         }
     });
 
@@ -99,33 +93,31 @@ $(document).ready(function(){
 
 
 /* ===========================================================
-Widget Tools
-===========================================================*/
+ Widget Tools
+ ===========================================================*/
 
 
 /* Close */
-$(document).ready(function(){
-  $(".widget-tools .closed-tool").click(function(event){
-  $(this).parents(".widget").fadeToggle(400);
+$(document).ready(function () {
+    $(".widget-tools .closed-tool").click(function (event) {
+        $(this).parents(".widget").fadeToggle(400);
 
-  return false;
-}); 
+        return false;
+    });
 
- }); 
+});
 
 
 /* expand */
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $('.widget-tools .expand-tool').on('click', function(){
-        if($(this).parents(".widget").hasClass('widget-fullsize'))
-        {
+    $('.widget-tools .expand-tool').on('click', function () {
+        if ($(this).parents(".widget").hasClass('widget-fullsize')) {
             $(this).parents(".widget").removeClass('widget-fullsize');
         }
-        else
-        {
+        else {
             $(this).parents(".widget").addClass('widget-fullsize');
- 
+
         }
     });
 
@@ -133,65 +125,65 @@ $(document).ready(function(){
 
 /* Modern Alerts */
 /* Default */
-$(document).ready(function(){
-  $(".Modern-alert .closed").click(function(event){
-  $(this).parents(".Modern-alert").fadeToggle(350);
+$(document).ready(function () {
+    $(".Modern-alert .closed").click(function (event) {
+        $(this).parents(".Modern-alert").fadeToggle(350);
 
-  return false;
-}); 
+        return false;
+    });
 
- }); 
+});
 
 
 /* Click to close */
-$(document).ready(function(){
-  $(".Modern-alert-click").click(function(event){
-  $(this).fadeToggle(350);
+$(document).ready(function () {
+    $(".Modern-alert-click").click(function (event) {
+        $(this).fadeToggle(350);
 
-  return false;
-}); 
+        return false;
+    });
 
- }); 
- 
- 
- 
- //BEGIN COUNTER FOR SUMMARY BOX
-    counterNum($(".profit h4 span:first-child"), 189, 112, 1, 30);
-    counterNum($(".income h4 span:first-child"), 636, 812, 1, 50);
-    counterNum($(".task h4 span:first-child"), 103, 155 , 1, 100);
-    counterNum($(".visit h4 span:first-child"), 310, 376, 1, 500);
-    function counterNum(obj, start, end, step, duration) {
-        $(obj).html(start);
-        setInterval(function(){
-            var val = Number($(obj).html());
-            if (val < end) {
-                $(obj).html(val+step);
-            } else {
-                clearInterval();
-            }
-        },duration);
-    }
-    //END COUNTER FOR SUMMARY BOX
+});
 
+
+//BEGIN COUNTER FOR SUMMARY BOX
+counterNum($(".profit h4 span:first-child"), 189, 112, 1, 30);
+counterNum($(".income h4 span:first-child"), 636, 812, 1, 50);
+counterNum($(".task h4 span:first-child"), 103, 155, 1, 100);
+counterNum($(".visit h4 span:first-child"), 310, 376, 1, 500);
+function counterNum(obj, start, end, step, duration) {
+    $(obj).html(start);
+    setInterval(function () {
+        var val = Number($(obj).html());
+        if (val < end) {
+            $(obj).html(val + step);
+        } else {
+            clearInterval();
+        }
+    }, duration);
+}
+//END COUNTER FOR SUMMARY BOX
 
 
 /* Tooltips */
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip()
 })
 
 /* Popover */
 $(function () {
-  $('[data-toggle="popover"]').popover()
+    $('[data-toggle="popover"]').popover()
 })
 
 
 /* Page Loading */
-$(window).load(function() {
-  $(".loading").fadeOut(750);
+$(window).load(function () {
+    $(".loading").fadeOut(750);
 })
 
 
 /* Update Fixed */
 /* Version 1.2 */
-$('.profilebox').on('click',function(){ $(".sidepanel").hide(); })
+$('.profilebox').on('click', function () {
+    $(".sidepanel").hide();
+})

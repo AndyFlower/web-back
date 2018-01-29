@@ -11,26 +11,24 @@
 
         // This is the easiest way to have default options.
         var settings = $.extend({
-            data: {
-
-            },
-            animate : true,
-            time : 2000,
-            instantAnimate : true,
-            straight : false,
-            valueColor : "#7b82ff",
-            backgroundColor : "#f4f6f7",
-            valueTextColor : "#ffffff",
-            labelTextColor : "#95a5b3",
-            gutter : "2px"
+            data: {},
+            animate: true,
+            time: 2000,
+            instantAnimate: true,
+            straight: false,
+            valueColor: "#7b82ff",
+            backgroundColor: "#f4f6f7",
+            valueTextColor: "#ffffff",
+            labelTextColor: "#95a5b3",
+            gutter: "2px"
         }, options);
 
 
         point_inner.css("background-color", settings.backgroundColor);
         point.css("padding-left", settings.gutter);
         value.css({
-            "border-right-color" : settings.valueColor,
-            "border-left-color" : settings.valueColor
+            "border-right-color": settings.valueColor,
+            "border-left-color": settings.valueColor
         });
 
         value_text.css("color", settings.valueTextColor);
@@ -74,13 +72,13 @@
             addValue(pi, val, next, v, highest, straight);
         });
 
-        $( window ).resize(function(){
+        $(window).resize(function () {
             reloadSizes();
         });
 
         //If animate
-        if(animate)
-            animateValues(container,animation_time, instantAnimate);
+        if (animate)
+            animateValues(container, animation_time, instantAnimate);
         else
             $(container).find(".fabo-value").removeClass("hide");
 
@@ -89,9 +87,9 @@
     };
 
 
-    function reloadSizes(){
+    function reloadSizes() {
 
-        $(".fabo-chart").each(function(){
+        $(".fabo-chart").each(function () {
             var container = $(this);
 
             var pi = $(this).find(".fabo-point-inner:first");
@@ -100,11 +98,11 @@
 
             console.log(width);
 
-            if(!container.data("straight")) {
+            if (!container.data("straight")) {
                 $(container).find(".fabo-point-inner:not(.bigger-than) .fabo-value").css("border-left-width", width + "px");
                 $(container).find(".fabo-point-inner.bigger-than .fabo-value").css("border-right-width", width + "px");
             }
-            else{
+            else {
                 $(this).find(".fabo-value").css("border-right-width", width + "px");
             }
 
@@ -122,7 +120,7 @@
         value_text.clone().text(val).appendTo(pi);
 
 
-        if(!straight) {
+        if (!straight) {
 
             next = (typeof next == "undefined") ? val : next;
             var biggerThan = (next > val);
@@ -153,11 +151,11 @@
             }
 
             pi.data("biggerThan", biggerThan);
-            if(biggerThan)
-            pi.addClass("bigger-than");
+            if (biggerThan)
+                pi.addClass("bigger-than");
             v.css("border-top-width", niveau + "px");
         }
-        else{
+        else {
             v.css("border-right-width", width + "px");
             var height = val * 100 / highest;
         }
@@ -169,25 +167,25 @@
     }
 
 
-    function animateValues(container,time, instantAnimate){
+    function animateValues(container, time, instantAnimate) {
         var elm = $(container).find(".fabo-value");
 
         var timer = (time / elm.length);
         var origin_time = timer;
 
-        if(!instantAnimate) {
+        if (!instantAnimate) {
             setTimeout(function () {
                 elm.removeClass("hide-border");
             }, time + 200);
         }
-        else{
+        else {
             elm.removeClass("hide-border");
         }
 
-        elm.each(function(){
+        elm.each(function () {
             var v = $(this);
 
-            setTimeout(function(){
+            setTimeout(function () {
                 v.removeClass("hide");
             }, timer);
 

@@ -80,3 +80,8 @@ Web-back/.idea/workspace.xml
 Web-back/.idea/modules.xml
 spring-email/.settings/org.eclipse.wst.common.project.facet.core.xml
 Log4jSendEmail/.idea/workspace.xml
+
+myweb/out
+myweb/.idea
+myweb/target
+spring-00/.idea/workspace.xml
