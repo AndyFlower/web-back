@@ -5,6 +5,7 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
@@ -12,7 +13,9 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache.xsd">
     <!--1 引入属性文件，在配置中占位使用 -->
     <context:property-placeholder location="classpath*:db.properties" />
 
@@ -52,7 +55,7 @@
         <!--指定会话工厂，如果当前上下文中只定义了一个则该属性可省去 -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
         <!-- 指定要自动扫描接口的基础包，实现接口 -->
-        <property name="basePackage" value="com.zhangguo.ssmall.mapper"></property>
+        <property name="basePackage" value="com.slp.dao"></property>
     </bean>
 
     <!--5 声明式事务管理 -->
@@ -74,4 +77,17 @@
             class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.slp.dao"/>
     </bean>
+
+
+    <!--集成ehcache开始-->
+    <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache.xml"/>
+    </bean>
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager" ref="cacheManagerFactory"/>
+    </bean>
+
+    <!-- 开启spring缓存 -->
+    <cache:annotation-driven cache-manager="cacheManager" />
+    <!--集成ehcache结束-->
 </beans>

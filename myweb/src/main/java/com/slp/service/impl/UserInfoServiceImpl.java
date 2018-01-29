@@ -5,11 +5,11 @@ import com.slp.dto.UserInfo;
 import com.slp.dto.UserInfoCriteria;
 import com.slp.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import sun.rmi.runtime.Log;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author sanglp
@@ -20,11 +20,13 @@ import java.util.logging.Logger;
 public class UserInfoServiceImpl implements UserInfoService {
     @Autowired
     UserInfoMapper userInfoMapper;
+    @CacheEvict(value = "baseCache" , key = "#userInfo.email")
     @Override
     public int save(UserInfo userInfo) {
        return  userInfoMapper.insert(userInfo);
     }
 
+    @Cacheable(value = "baseCache", key = "'test'")
     @Override
     public UserInfo selectUserByEmail(UserInfo userInfo) {
         UserInfoCriteria userInfoCriteria =  new UserInfoCriteria();
