@@ -3,6 +3,7 @@ package com.slp.web;
 import com.slp.dto.UserInfo;
 import com.slp.service.UserInfoService;
 import com.slp.util.EHCacheUtil;
+import com.slp.util.RedisCacheUtil;
 import net.sf.ehcache.CacheManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class LoginController {
     private UserInfoService userInfoService;
     @Autowired
     private CacheManager cacheManager;
+    @Autowired
+    private RedisCacheUtil redisCacheUtil;
     /**
      * 进入登陆首页页面
      * @param map
@@ -57,6 +60,11 @@ public class LoginController {
         userInfo.setEmail(email);
         userInfo.setUserPassword(password);
         UserInfo user= userInfoService.selectUserByEmail(userInfo);
+        String userEmail = redisCacheUtil.hget("userInfo","email");
+        logger.debug("userEmail in redis cache is = "+userEmail);
+        if(null == userEmail){
+            redisCacheUtil.hset("userInfo","email",email);
+        }
         if (user==null){
             return "signUp";
         }
