@@ -218,6 +218,13 @@
             <artifactId>spring-data-redis</artifactId>
             <version>1.8.9.RELEASE</version>
         </dependency>
+
+        <!-- druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.7</version>
+        </dependency>
     </dependencies>
 
     

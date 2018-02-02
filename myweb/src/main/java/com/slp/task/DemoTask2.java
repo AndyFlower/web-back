@@ -22,7 +22,7 @@ public class DemoTask2 {
     /**
      * @Scheduled可以作为一个触发源添加到一个方法中，以一个固定的时间延迟调用一次执行，这个周期是以上一个调度任务的完成时间为基准，在上一个任务完成之后5s后再次执行
      */
-    @Scheduled(fixedDelay = 5000)//@Scheduled可以作为一个触发源添加到一个方法中，以一个固定的时间延迟调用一次执行，这个周期是以上一个调度任务的完成时间为基准，在上一个任务完成之后5s后再次执行
+    @Scheduled(fixedDelay = 50000000)//@Scheduled可以作为一个触发源添加到一个方法中，以一个固定的时间延迟调用一次执行，这个周期是以上一个调度任务的完成时间为基准，在上一个任务完成之后5s后再次执行
     public void demo1(){
         log.info("定时任务1开始执行啦！！！");
         long begin = System.currentTimeMillis();
@@ -37,7 +37,7 @@ public class DemoTask2 {
     /**
      * 以一个固定延迟时间5秒中调用一次执行，这个周期是以上一个任务开始时间为基准，从上一个任务开始执行后5s再次调用
      */
-    @Scheduled(fixedRate  = 5000)
+    @Scheduled(fixedRate  = 50000000)
     public void demo2(){
         log.info("定时任务2开始执行啦！！！");
         long begin = System.currentTimeMillis();
