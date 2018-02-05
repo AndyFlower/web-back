@@ -19,7 +19,7 @@ import java.util.List;
 @Service("userInfoService")
 public class UserInfoServiceImpl implements UserInfoService {
     @Autowired
-    UserInfoMapper userInfoMapper;
+    private UserInfoMapper userInfoMapper;
     @CacheEvict(value = "baseCache" , key = "#userInfo.email")
     @Override
     public int save(UserInfo userInfo) {
