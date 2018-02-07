@@ -6,6 +6,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
@@ -15,12 +16,15 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/cache
-        http://www.springframework.org/schema/cache/spring-cache.xsd">
+        http://www.springframework.org/schema/cache/spring-cache.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
     <!--1 引入属性文件，在配置中占位使用 -->
     <context:property-placeholder location="classpath*:db.properties" />
     <!--加载redis配置文件-->
     <context:property-placeholder location="classpath*:redis.properties" ignore-unresolvable="true"/>
-
+    <!--加载rabbitmq-->
+    <context:property-placeholder location="classpath*:mq.properties" />
     <!--2 配置C3P0数据源 原始第一版 -->
     <bean id="datasource1" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
@@ -159,4 +163,63 @@
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
         </property>
     </bean>
+    
+    <!--配置rabbitmq开始-->
+    <bean id="connectionFactoryMq" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+        <constructor-arg value="192.168.181.201"/>
+        <property name="username" value="admin"/>
+        <property name="password" value="admin"/>
+        <property name="host" value="192.168.181.201"/>
+        <property name="port" value="5672"/>
+    </bean>
+    <bean id="rabbitAdmin" class="org.springframework.amqp.rabbit.core.RabbitAdmin">
+        <constructor-arg ref="connectionFactoryMq"/>
+    </bean>
+    <!--创建rabbitTemplate消息模板类-->
+    <bean id="rabbitTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+        <constructor-arg ref="connectionFactoryMq"/>
+    </bean>
+   <!--创建消息转换器为SimpleMessageConverter-->
+    <bean id="serializerMessageConverter" class="org.springframework.amqp.support.converter.SimpleMessageConverter">
+    </bean>
+    <!--创建持久化的队列-->
+    <bean  id="queue" class="org.springframework.amqp.core.Queue">
+        <constructor-arg index="0" value="testQueue"></constructor-arg>
+        <constructor-arg index="1" value="true"></constructor-arg>
+        <constructor-arg index="2" value="false"></constructor-arg>
+        <constructor-arg index="3" value="true"></constructor-arg>
+    </bean>
+    <!--创建交换器的类型 并持久化-->
+    <bean id="topicExchange" class="org.springframework.amqp.core.TopicExchange">
+        <constructor-arg index="0" value="testExchange"></constructor-arg>
+        <constructor-arg index="1" value="true"></constructor-arg>
+        <constructor-arg index="2" value="false"></constructor-arg>
+    </bean>
+    <util:map id="arguments">
+
+    </util:map>
+    <!--绑定交换器 队列-->
+    <bean id="binding" class="org.springframework.amqp.core.Binding">
+        <constructor-arg index="0" value="testQueue"></constructor-arg>
+        <constructor-arg index="1" value="QUEUE"></constructor-arg>
+        <constructor-arg index="2" value="testExchange"></constructor-arg>
+        <constructor-arg index="3" value="testQueue"></constructor-arg>
+        <constructor-arg index="4" value="#{arguments}"></constructor-arg>
+    </bean>
+    <!--用于接收消息的处理类-->
+    <bean id="rqmConsumer" class="com.slp.mq.RmqConsumer"></bean>
+
+    <bean id="messageListenerAdapter" class="org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter">
+        <constructor-arg ref="rqmConsumer" />
+        <property name="defaultListenerMethod" value="rmqProducerMessage"></property>
+        <property name="messageConverter" ref="serializerMessageConverter"></property>
+    </bean>
+    <!-- 用于消息的监听的容器类SimpleMessageListenerContainer,监听队列  queues可以传多个-->
+    <bean id="listenerContainer"  class="org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer">
+        <property name="queues" ref="queue"></property>
+        <property name="connectionFactory" ref="connectionFactoryMq"></property>
+        <property name="messageListener" ref="messageListenerAdapter"></property>
+    </bean>
+    <bean id="rmqProducer" class="com.slp.mq.RmqProducer"></bean>
+    <!--配置rabbitmq结束-->
 </beans>
