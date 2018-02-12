@@ -11,7 +11,7 @@
     <context-param>
         <!--设置Spring加载时的配置文件位置，默认位置在WEB-INF/lib目录下-->
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml</param-value>
+        <param-value>classpath*:applicationContext.xml</param-value>
     </context-param>
     <listener>
         <description>Spring容器加载监听器</description>

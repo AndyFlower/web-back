@@ -220,7 +220,6 @@
         <property name="connectionFactory" ref="connectionFactoryMq"></property>
         <property name="messageListener" ref="messageListenerAdapter"></property>
     </bean>
-
     <bean id="rmqProducer" class="com.slp.mq.RmqProducer"></bean>
     <!--配置rabbitmq结束-->
 </beans>
