@@ -166,3 +166,238 @@ public class ListAdd2 {
 	}
 	
 }
+及时唤醒操作，使用lock和notify是不能满足的。可以使用CountDownLatch.
+2.2 使用wait和notify模拟Queue
+BlockingQueue:顾名思义，首先它是一个队列，并且支持阻塞的机制，阻塞的放入和得到数据，我们要实现LinkedBlockingQueue下面两个简单的方法put和take.
+put(anObject)把anObject加到BlockingQueue里，如果BlockingQueue没有空间，则调用此方法的线程被阻断，直到BlockingQueue里面有空间再继续。
+take:取走BlockingQueue里排在首位的对象，若BlockingQueue为空，阻断进入等待状态，直到BlockingQueue有新的数据被加入。
+package com.slp.base.conn009;
+
+import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class MyQueue {
+	
+	//1 需要一个承装元素的集合 
+	private LinkedList<Object> list = new LinkedList<Object>();
+	
+	//2 需要一个计数器
+	private AtomicInteger count = new AtomicInteger(0);
+	
+	//3 需要制定上限和下限
+	private final int minSize = 0;
+	
+	private final int maxSize ;
+	
+	//4 构造方法
+	public MyQueue(int size){
+		this.maxSize = size;
+	}
+	
+	//5 初始化一个对象 用于加锁
+	private final Object lock = new Object();
+	
+	
+	//put(anObject): 把anObject加到BlockingQueue里,如果BlockQueue没有空间,则调用此方法的线程被阻断，直到BlockingQueue里面有空间再继续.
+	public void put(Object obj){
+		synchronized (lock) {
+			while(count.get() == this.maxSize){
+				try {
+					lock.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			//1 加入元素
+			list.add(obj);
+			//2 计数器累加
+			count.incrementAndGet();
+			//3 通知另外一个线程（唤醒）
+			lock.notify();
+			System.out.println("新加入的元素为:" + obj);
+		}
+	}
+	
+	
+	//take: 取走BlockingQueue里排在首位的对象,若BlockingQueue为空,阻断进入等待状态直到BlockingQueue有新的数据被加入.
+	public Object take(){
+		Object ret = null;
+		synchronized (lock) {
+			while(count.get() == this.minSize){
+				try {
+					lock.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			//1 做移除元素操作
+			ret = list.removeFirst();
+			//2 计数器递减
+			count.decrementAndGet();
+			//3 唤醒另外一个线程
+			lock.notify();
+		}
+		return ret;
+	}
+	
+	public int getSize(){
+		return this.count.get();
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		final MyQueue mq = new MyQueue(5);
+		mq.put("a");
+		mq.put("b");
+		mq.put("c");
+		mq.put("d");
+		mq.put("e");
+		
+		System.out.println("当前容器的长度:" + mq.getSize());
+		
+		Thread t1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				mq.put("f");
+				mq.put("g");
+			}
+		},"t1");
+		
+		t1.start();
+		
+		
+		Thread t2 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Object o1 = mq.take();
+				System.out.println("移除的元素为:" + o1);
+				Object o2 = mq.take();
+				System.out.println("移除的元素为:" + o2);
+			}
+		},"t2");
+		
+		
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		t2.start();
+	}
+}
+2.3 ThreadLocal
+ThreadLocal概念：线程局部变量，是一种多线程间并发访问变量的解决方案，与其synchronized等加锁的方式不同，ThreadLocal完全不提供锁，而使用以空间换时间的手段，为每个线程提供变量的独立副本，以保证线程安全。
+从性能上说,ThreadLocal不具有局对的优势，在并发不是很高的时候，加锁的性能会好，但作为一套与锁完全无关的线程安全解决方案，在高并发量或者竞争激烈的常见，使用ThreadLocal可以在一定程度上减少锁竞争。
+package com.slp.base.conn010;
+
+public class ConnThreadLocal {
+
+	public static ThreadLocal<String> th = new ThreadLocal<String>();
+	
+	public void setTh(String value){
+		th.set(value);
+	}
+	public void getTh(){
+		System.out.println(Thread.currentThread().getName() + ":" + this.th.get());
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		final ConnThreadLocal ct = new ConnThreadLocal();
+		Thread t1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				ct.setTh("张三");
+				ct.getTh();
+			}
+		}, "t1");
+		
+		Thread t2 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(1000);
+					ct.getTh();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}, "t2");
+		
+		t1.start();
+		t2.start();
+	}
+	
+}
+输出结果：
+t1:张三
+t2:null
+2.4 单例&多线程
+单例模式，最常见的就是饥饿模式，一个直接实例化对象，一个在调用方法时进行实例化对象。在多线程模式中，考虑到性能和线程安全问题，我们一般选择下面两种比较经典的单例模式，在性能提高的同时，又保证了线程安全。
+dubble  check instance
+package com.slp.base.conn011;
+
+public class DubbleSingleton {
+
+	private static DubbleSingleton ds;
+	
+	public  static DubbleSingleton getDs(){
+		if(ds == null){
+			try {
+				//模拟初始化对象的准备时间...
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			synchronized (DubbleSingleton.class) {
+				if(ds == null){
+					ds = new DubbleSingleton();
+				}
+			}
+		}
+		return ds;
+	}
+	
+	public static void main(String[] args) {
+		Thread t1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println(DubbleSingleton.getDs().hashCode());
+			}
+		},"t1");
+		Thread t2 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println(DubbleSingleton.getDs().hashCode());
+			}
+		},"t2");
+		Thread t3 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println(DubbleSingleton.getDs().hashCode());
+			}
+		},"t3");
+		
+		t1.start();
+		t2.start();
+		t3.start();
+	}
+	
+}
+static inner class
+package com.slp.base.conn011;
+
+public class Singletion {
+	
+	private static class InnerSingletion {
+		private static Singletion single = new Singletion();
+	}
+	
+	public static Singletion getInstance(){
+		return InnerSingletion.single;
+	}
+	
+}
